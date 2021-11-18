@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+.App {
+    width: 80%;
+}
+
+.App .column {
+    width: 30%;
+}
+
+.droppable-col {
+    /* width: 100%; */
+    background-color: blue;
+    padding: 10px 10px 0 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.item.dragging {
+    background-color: rgb(80, 235, 255);
+    color: white;
+}
+
+.tab-link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+input {
+    border-color: blue;
+
+}
+
+.content {
+    padding-top: 50px;
+}
