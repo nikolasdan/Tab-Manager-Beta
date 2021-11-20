@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
-import _ from "lodash";
+import _, { set } from "lodash";
 import {v4} from "uuid";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
@@ -12,7 +12,7 @@ function App() {
   const [text, setText] = useState("")
   const [groups, setGroups] = useState("")
   const [state, setState] = useState({
-    group: {
+    groups: {
       title: "Programming",
       items: []
     }
@@ -43,18 +43,19 @@ function App() {
     })
   }
 
+// Add item
   const addItem = () => {
     setState(prev => {
       return {
         ...prev,
-        group: {
-          ...prev.group,
+        groups: {
+          ...prev.groups,
           items: [
             {
               id: v4(),
               name: text
             },
-            ...prev.group.items
+            ...prev.groups.items
           ]
         }
       }
@@ -63,7 +64,7 @@ function App() {
     setText("")
   }
 
-
+// Add group
   const addGroup = () => { 
     setState(prev => {
       return {
@@ -74,9 +75,10 @@ function App() {
         }
       }
     })
-
     setGroups("")
   }
+
+
   return (
     <div>
       <Navbar />
