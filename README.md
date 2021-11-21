@@ -1,6 +1,6 @@
 # Tab-Manager-Beta
 
-A browser Tab Manager webapp that represents the tabs in a graphical way.
+A Tab Manager webapp that represents the tabs in a graphical way.
 
 
 <h1>Usage:</h1>
