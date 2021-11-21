@@ -6,7 +6,7 @@ A Tab Manager webapp that represents the tabs in a graphical way.
 <h1>Usage:</h1>
 <ul>
     <li>npm i (installs dependencies)</li>
-    <li>npm start (will open app on localhost:3000)</li>
+    <li>npm start (will open the app on localhost:3000)</li>
 </ul>
 <h3>Execute the commands in order to not encounter any problems</h3>
 
@@ -41,6 +41,7 @@ A Tab Manager webapp that represents the tabs in a graphical way.
     <li>Creating new workspaces</li>
     <li>Representing groups as tabs in a workspace</li>
     <li>Saving everything localy</li>
+    <li>Search bar for searching the tabs</li>
 </ul>
 
 
