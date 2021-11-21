@@ -13,6 +13,7 @@ function App() {
   const [groups, setGroups] = useState("")
   const [state, setState] = useState({
     groups: {
+      id: v4(),
       title: "Programming",
       items: []
     }
@@ -77,6 +78,7 @@ const deleteItem = (id) => {
   })
 }
 
+//Delete group
 // Add group
   const addGroup = () => { 
     setState(prev => {
@@ -105,8 +107,9 @@ const deleteItem = (id) => {
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <a href="/" class="nav-link align-middle px-0">
-                            <i className="fs-4 bi-archive text-white"></i> <span className=" workspace ms-1 d-none d-sm-inline text-white">Workspaces</span>
+                            <i className="fs-4 bi-archive text-white"></i> <span className=" workspace ms-1 d-none d-sm-inline text-white">Workspaces <button className="btn btn-outline-primary p-1">+</button></span>
                         </a>
+                        
                         <hr />
                     </li>
                 </ul>
@@ -127,7 +130,10 @@ const deleteItem = (id) => {
         {_.map(state, (data, key) => {
           return(
             <div key={key} className={"column"}>
+              <div className="d-flex justify-content-between py-2">
               <h3>{data.title}</h3>
+              <button className="btn btn-outline-danger">X</button>
+              </div>
               <Droppable droppableId={key}>
                 {(provided, snapshot) => {
                   return(
