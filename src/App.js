@@ -64,6 +64,19 @@ function App() {
     setText("")
   }
 
+// Delete item
+const deleteItem = (id) => {
+  setState(prev => {
+    return {
+      ...prev,
+      groups: {
+        ...prev.groups,
+        items: prev.groups.items.filter(item => item.id !== id)
+      }
+    }
+  })
+}
+
 // Add group
   const addGroup = () => { 
     setState(prev => {
@@ -78,13 +91,13 @@ function App() {
     setGroups("")
   }
 
-
   return (
     <div>
       <Navbar />
     <div className="App">
       
       {/* Sidebar */}
+      
       <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -92,8 +105,9 @@ function App() {
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <a href="/" class="nav-link align-middle px-0">
-                            <i className="fs-4 bi-archive"></i> <span class="ms-1 d-none d-sm-inline">Workspaces</span>
+                            <i className="fs-4 bi-archive text-white"></i> <span className=" workspace ms-1 d-none d-sm-inline text-white">Workspaces</span>
                         </a>
+                        <hr />
                     </li>
                 </ul>
             </div>
@@ -102,7 +116,7 @@ function App() {
         <center>
       <div className="d-flex py-3 justify-content-center">
         <input className=" w-50 form-control me-2" type="text" value={text} placeholder="https://yoursite.com/" onChange={(e) => setText(e.target.value)}/>
-        <button className="btn btn-outline-primary" onClick={addItem}>Add tab</button>
+        <button className="btn btn-outline-primary" onClick={addItem}>Add url <i className="bi-link"></i> </button>
       </div>
 
       <div className="d-flex py-3 justify-content-center">
@@ -134,11 +148,20 @@ function App() {
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
                                 >
+                                  <div className="containe-fluid">
+                                    <div className="row g-0">
+                                      <div className="col-sm-6 col-md-8">
                                   <a className="tab-link" href={el.name} target="_blank" rel="noopener noreferrer">
                                   {el.name}
                                   </a>
-                                  
+                                  </div>
+                                  <div className="col-6 col-md-4">
+                                  <button className="btn btn-outline-danger flex-end" onClick={() => deleteItem(el.id)}>X</button>
+                                  </div>
+                                  </div>
+                                  </div>
                                 </div>
+                                
                               )
                             }}
                           </Draggable>

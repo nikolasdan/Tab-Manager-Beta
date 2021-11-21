@@ -46,3 +46,13 @@ input {
 .content {
     padding-top: 50px;
 }
+
+.workspace:hover {
+    color: rgb(80, 235, 255) !important;
+    transition-duration: 0.4s;
+}
+
+.btn-wp {
+    font-size: 20px !important;
+
+}
